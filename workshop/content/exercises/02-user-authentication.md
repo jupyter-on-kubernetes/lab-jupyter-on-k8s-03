@@ -26,7 +26,7 @@ To generate a sample of the configuration file that JupyterHub accepts run:
 jupyterhub --generate-config
 ```
 
-This will create the ``jupyterhub_config.py`` file. Based on the extension used on the configuration file, you can use Python code to configure JupyterHub.
+This will create the ``jupyterhub_config.py`` file. Based on the extension used on the configuration file, you can see that Python code is required to be used to configure JupyterHub.
 
 This generated configuration file has a huge number of options that can be set. You can view the documented set of configuration options by running:
 
