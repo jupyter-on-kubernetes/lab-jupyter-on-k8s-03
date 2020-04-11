@@ -1,3 +1,4 @@
+apiVersion: training.eduk8s.io/v1alpha1
 kind: Workshop
 metadata:
   name: lab-jupyter-on-k8s-03
