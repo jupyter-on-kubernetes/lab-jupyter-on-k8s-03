@@ -11,6 +11,8 @@ modules:
         name: User Authentication
     exercises/03-local-process-spawner:
         name: Local Process Spawner
+    exercises/04-kubernetes-spawner:
+        name: Kubernetes Spawner
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
