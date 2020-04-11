@@ -12,16 +12,16 @@ Having created the Python virtual environment, activate it so the Python runtime
 source jupyter/bin/activate
 ```
 
-Before installing and additional Python packages, ensure the latest version of ``pip`` is installed into the Python virtual environment by running:
+Before installing any additional Python packages, ensure the latest version of ``pip`` is installed into the Python virtual environment by running:
 
 ```execute
 pip install -U pip
 ```
 
-In order to work in its default configuration, JupyterHub needs to use a proxy, which is used to route user sessions to their respective Jupyter notebook instances. This proxy is implemented in node.js. To install it run:
+In order to work in its default configuration, JupyterHub needs to use a proxy, which is used to route user sessions to their respective Jupyter notebook instances. This proxy is implemented in node.js. To install it locally run:
 
 ```execute
-npm install -g configurable-http-proxy
+npm install configurable-http-proxy
 ```
 
 Now install JupyterHub using:
