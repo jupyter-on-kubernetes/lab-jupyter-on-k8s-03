@@ -5,4 +5,5 @@ modules:
     - workshop-overview
     - verify-environment
     - exercises/01-running-jupyterhub
+    - exercices/02-user-authentication
     - workshop-summary
