@@ -35,3 +35,15 @@ Initially we are going to have JupyterHub spawn local instances of the Jupyter n
 ```execute
 pip install notebook jupyterlab
 ```
+
+To run JupyterHub now run:
+
+```execute
+jupyterhub
+```
+
+To access the JupyterHub application click on the link:
+
+{{ingress_protocol}}://{{session_namespace}}-local-8000.{{ingress_domain}}/
+
+This should bring up the JupyterHub login page.
