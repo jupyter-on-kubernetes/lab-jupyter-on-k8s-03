@@ -6,6 +6,6 @@ This workshop is going to investigate the use of an intermediate application for
 
 For running JupyterHub on Kubernetes, the go to solution supported by the Jupyter project is the [Zero to JupyterHub with Kubernetes](https://github.com/jupyterhub/zero-to-jupyterhub-k8s) project. Although this solution does work, that this project is supported by the Jupyter project has more or less resulted in no competing solutions of note being developed for deploying JupyterHub and Jupyter notebooks to Kubernetes, at least no community base solutions.
 
-Alternative solutions have been developed by cloud solution providers and other commercial organisations for a specific cloud platform, but these are in effect proprietary solutions where none of the code is available, or which is tied to that organisations infrastructure.
+Alternative solutions have been developed by cloud solution providers and other commercial organisations for a specific cloud platform, but these are in effect proprietary solutions where none of the code is available, or which is tied to that organisations infrastructure or cloud product.
 
 This workshop therefore is going to ignore the Zero to JupyterHub with Kubernetes project and look at the basics steps for deploying JupyterHub to Kubernetes and see if that spawns some ideas of what could be a better solution to the problem.
