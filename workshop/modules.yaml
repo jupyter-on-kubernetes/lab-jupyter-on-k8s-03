@@ -8,7 +8,9 @@ modules:
     exercises/01-running-jupyterhub:
         name: Running JupyterHub
     exercises/02-user-authentication:
-        name: User Authentication 
+        name: User Authentication
+    exercises/03-local-process-spawner:
+        name: Local Process Spawner
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

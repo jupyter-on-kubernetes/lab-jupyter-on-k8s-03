@@ -6,4 +6,5 @@ modules:
     - verify-environment
     - exercises/01-running-jupyterhub
     - exercises/02-user-authentication
+    - exercises/03-local-process-spawner
     - workshop-summary

@@ -57,3 +57,7 @@ jupyterhub -f hub-v1/jupyterhub_config.py
 To access the JupyterHub application click on the link:
 
 {{ingress_protocol}}://{{session_namespace}}-local-8000.{{ingress_domain}}/
+
+Now although we weren't presented with a login page and instead were automatically given a user identity, a failure occurred in trying to create a Jupyter notebook instance.
+
+![Local Process Spawner Error](local-process-spawner-error.png)
