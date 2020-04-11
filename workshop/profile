@@ -1,0 +1,3 @@
+# Add local nom bin directory to the PATH.
+
+PATH=$HOME/node_modules/.bin:$PATH
