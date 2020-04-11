@@ -21,7 +21,7 @@ The output should be:
 ```
 c.JupyterHub.authenticator_class = "tmpauthenticator.TmpAuthenticator"
 
-c.JupyterHub.spawner_class = "jupyterhub.spawner:SimpleLocalProcessSpawner"
+c.JupyterHub.spawner_class = "jupyterhub.spawner.SimpleLocalProcessSpawner"
 ```
 
 In this case we replace the default local process spawner with a simplified version which allows us to create a Jupyter notebook instance per session, but where the Jupyter notebook instances run as the same user as JupyterHub. To allow some measure of separation, each session is assigned its own directory in which to save any work.
