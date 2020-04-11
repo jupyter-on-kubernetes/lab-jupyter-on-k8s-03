@@ -26,7 +26,7 @@ c.JupyterHub.spawner_class = "jupyterhub.spawner.SimpleLocalProcessSpawner"
 
 In this case we replace the default local process spawner with a simplified version which allows us to create a Jupyter notebook instance per session, but where the Jupyter notebook instances run as the same user as JupyterHub. To allow some measure of separation, each session is assigned its own directory in which to save any work.
 
-This spawner is only intended for development and you would never use this spawner if wanting to hosting Jupyter notebooks for many users since there is no proper separation between users as they share the file system, and even the same Python virtual environment. We are using it here as an example as it helps introduce the concept of the spawner used by JupyterHub to create the Jupyter notebook instances.
+This spawner is only intended for development and you would never use this spawner if wanting to hosting Jupyter notebooks for many users since there is no proper separation between users as they share the same file system, and even the same Python virtual environment. We are using it here as an example as it helps introduce the concept of the spawner used by JupyterHub to create the Jupyter notebook instances.
 
 Run JupyterHub again, but tell it to use this configuration file.
 
