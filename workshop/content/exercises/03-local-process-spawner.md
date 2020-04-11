@@ -21,14 +21,12 @@ The output should be:
 ```
 c.JupyterHub.authenticator_class = "tmpauthenticator.TmpAuthenticator"
 
-c.JupyterHub.spawner_class = "simple"
+c.JupyterHub.spawner_class = "jupyterhub.spawner:SimpleLocalProcessSpawner"
 ```
 
-In this case we replace the default local process spawner with the ``jupyterhub.spawner:SimpleLocalProcessSpawner`` process spawner, where the name ``simple`` is internally mapped to the spawner by JupyterHub.
+In this case we replace the default local process spawner with a simplified version which allows us to create a Jupyter notebook instance per session, but where the Jupyter notebook instances run as the same user as JupyterHub. To allow some measure of separation, each session is assigned its own directory in which to save any work.
 
-This version of the spawner allows us to create a Jupyter notebook instance per session, but where the Jupyter notebook instances run as the same user as JupyterHub. To allow some measure of separation, each session is assigned its own directory in which to save and work.
-
-This spawner is only intended for development and would never use this spawner if wanting to hosting Jupyter notebooks for many users since there is no proper separation between users as they share the file system, and even the same Python virtual environment. We are using it here as an example as it helps introduce the concept of the spawner used by JupyterHub to create the Jupyter notebook instances.
+This spawner is only intended for development and you would never use this spawner if wanting to hosting Jupyter notebooks for many users since there is no proper separation between users as they share the file system, and even the same Python virtual environment. We are using it here as an example as it helps introduce the concept of the spawner used by JupyterHub to create the Jupyter notebook instances.
 
 Run JupyterHub again, but tell it to use this configuration file.
 
@@ -39,3 +37,9 @@ jupyterhub -f hub-v2/jupyterhub_config.py
 To access the JupyterHub application click on the link:
 
 {{ingress_protocol}}://{{session_namespace}}-local-8000.{{ingress_domain}}/
+
+This time we are successfully able to launch a Jupyter notebook session.
+
+![Jupyter Notebook Session](jupyter-notebook-session.png)
+
+Because we are using ``tmpauthenticator.TmpAuthenticator`` for managing user authentication, every distinct user browser session will be assigned their own separate session. The problem we have right now is that these are just separate processes on the one host and so users could interfere with each other.

@@ -33,7 +33,7 @@ pip install jupyterhub
 Initially we are going to have JupyterHub spawn local instances of the Jupyter notebook application, so we install it as well.
 
 ```execute
-pip install notebook jupyterlab
+pip install notebook
 ```
 
 To run JupyterHub now run:
