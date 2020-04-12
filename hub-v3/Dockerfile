@@ -1,7 +1,14 @@
 FROM jupyterhub/jupyterhub:latest
 
-COPY requirements.txt .
+RUN adduser --home /srv/jupyterhub --no-create-home --uid 1001 \
+    --gid 0 jupyterhub
+
+RUN chmod g+w /srv/jupyterhub
+
+COPY --chown=1001:0 requirements.txt .
 
 RUN pip3 install -r requirements.txt
 
-COPY jupyterhub_config.py .
+COPY --chown=1001:0 jupyterhub_config.py .
+
+USER 1000
