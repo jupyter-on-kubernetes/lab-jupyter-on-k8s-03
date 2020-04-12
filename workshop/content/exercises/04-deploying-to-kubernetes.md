@@ -3,9 +3,17 @@ cd ~/hub-v3
 ```
 
 ```execute
-ytt -f . | kbld -f - > /tmp/resources.yaml
+podman build -t custom-jupyterhub
 ```
 
 ```execute
-kapp deploy -a jupyterhub -y -f /tmp/resources.yaml
+podman tag custom-jupyterhub {{REGISTRY_HOST}}/custom-jupyterhub:latest
+```
+
+```execute
+podman push {{REGISTRY_HOST}}/custom-jupyterhub:latest
+```
+
+```execute
+ytt -f . | kbld -f - | kapp deploy -a jupyterhub -y -f -
 ```

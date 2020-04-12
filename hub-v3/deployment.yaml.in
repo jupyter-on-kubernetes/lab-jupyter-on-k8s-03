@@ -19,7 +19,7 @@ spec:
       - name: jupyterhub
       containers:
       - name: jupyterhub
-        image: custom-jupyterhub
+        image: ${REGISTRY_HOST}/custom-jupyterhub:latest
         ports:
         - containerPort: 8000
           protocol: TCP

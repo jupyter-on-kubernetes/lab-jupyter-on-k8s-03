@@ -1,5 +1,0 @@
-apiVersion: kbld.k14s.io/v1alpha1
-kind: ImageDestinations
-destinations:
-- image: custom-jupyterhub
-  newImage: ${REGISTRY_HOST}/custom-jupyterhub
