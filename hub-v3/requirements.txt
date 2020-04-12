@@ -1,2 +1,2 @@
-notebook==6.0.3
 jupyterhub-tmpauthenticator==0.6
+jupyterhub-kubespawner==0.11.1
