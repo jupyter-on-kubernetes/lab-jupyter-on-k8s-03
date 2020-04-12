@@ -23,6 +23,8 @@ spec:
     env:
     - name: REGISTRY_HOST
       value: $(session_namespace)-registry.$(ingress_domain)
+    - name: REGISTRY_USERNAME
+      value: eduk8s
     - name: REGISTRY_PASSWORD
       value: eduk8s
     patches:
