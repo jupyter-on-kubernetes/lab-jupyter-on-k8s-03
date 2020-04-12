@@ -10,4 +10,4 @@ spec:
       - path: "/"
         backend:
           serviceName: jupyterhub
-          servicePort: 8000
+          servicePort: 8080
