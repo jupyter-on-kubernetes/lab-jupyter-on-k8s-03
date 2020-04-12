@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyterhub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: jupyterhub
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        deployment: jupyterhub
+    spec:
+      serviceAccountName: jupyterhub
+      containers:
+      - name: jupyterhub
+        image: jupyterhub/jupyterhub
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            memory: 512Mi
+        volumeMounts:
+        - mountPath: /srv/jupyterhub
+          name: configs
+      volumes:
+      - name: configs
+        configMap:
+          defaultMode: 420
+          name: jupyterhub
