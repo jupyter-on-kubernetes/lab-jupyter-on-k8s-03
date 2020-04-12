@@ -17,7 +17,7 @@ spec:
       serviceAccountName: jupyterhub
       containers:
       - name: jupyterhub
-        image: jupyterhub/jupyterhub
+        image: custom-jupyterhub
         ports:
         - containerPort: 8000
           protocol: TCP
