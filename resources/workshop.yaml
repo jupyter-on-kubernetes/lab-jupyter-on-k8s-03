@@ -8,7 +8,7 @@ spec:
   description: A workshop exploring using JupyterHub to deploy Jupyter notebooks to Kubernetes
   url: https://github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
   content: github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
-  duration: 30m
+  duration: 45m
   session:
     budget: large
     applications:
@@ -30,7 +30,7 @@ spec:
       - name: workshop
         resources:
           requests:
-            memory: 256Mi
+            memory: 512Mi
           limits:
             memory: 768Mi
         securityContext:
