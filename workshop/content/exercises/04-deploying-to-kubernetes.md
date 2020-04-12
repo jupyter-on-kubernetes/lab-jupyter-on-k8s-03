@@ -3,5 +3,5 @@ cd ~/hub-v3
 ```
 
 ```execute
-kbld -f . | kapp -a jupyterhub -f -
+kbld -f . | kapp deploy -a jupyterhub -y -f -
 ```
