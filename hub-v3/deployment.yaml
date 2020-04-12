@@ -26,11 +26,3 @@ spec:
             memory: 512Mi
           requests:
             memory: 512Mi
-        volumeMounts:
-        - mountPath: /srv/jupyterhub
-          name: configs
-      volumes:
-      - name: configs
-        configMap:
-          defaultMode: 420
-          name: jupyterhub
