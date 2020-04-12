@@ -1,7 +1,7 @@
 FROM jupyterhub/jupyterhub:latest
 
-RUN adduser --home /srv/jupyterhub --no-create-home --uid 1001 \
-    --gid 0 jupyterhub
+RUN adduser --home /srv/jupyterhub --no-create-home --disabled-password \
+    --uid 1001 --gid 0 jupyterhub
 
 RUN chmod g+w /srv/jupyterhub
 
