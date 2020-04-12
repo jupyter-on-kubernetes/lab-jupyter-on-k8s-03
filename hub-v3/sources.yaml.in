@@ -1,5 +1,5 @@
 apiVersion: kbld.k14s.io/v1alpha1
 kind: Sources
 sources:
-- image: ${REGISTRY_HOST}/custom-jupyterhub
+- image: custom-jupyterhub
   path: .
