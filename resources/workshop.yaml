@@ -46,8 +46,6 @@ spec:
           subPath: var-lib-containers
         - name: registry
           mountPath: /var/run/registry
-      securityContext:
-        fsGroup: 0
       volumes:
       - name: podman
         persistentVolumeClaim:
@@ -137,7 +135,6 @@ spec:
                 mountPath: /auth
             securityContext:
               runAsUser: 1000
-              fsGroup: 0
             volumes:
             - name: data
               persistentVolumeClaim:
