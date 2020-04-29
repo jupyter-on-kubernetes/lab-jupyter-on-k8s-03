@@ -1,4 +1,4 @@
-apiVersion: training.eduk8s.io/v1alpha1
+apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
 metadata:
   name: lab-jupyter-on-k8s-03
@@ -7,7 +7,8 @@ spec:
   title: "Jupyter on Kubernetes #3"
   description: A workshop exploring using JupyterHub to deploy Jupyter notebooks to Kubernetes
   url: https://github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
-  content: github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
+  content:
+    files: github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
   duration: 45m
   session:
     budget: large
