@@ -191,7 +191,7 @@ spec:
       - kind: ServiceAccount
         namespace: $(workshop_namespace)
         name: $(service_account)
-  workshop:
+  environment:
     objects:
     - apiVersion: policy/v1beta1
       kind: PodSecurityPolicy
