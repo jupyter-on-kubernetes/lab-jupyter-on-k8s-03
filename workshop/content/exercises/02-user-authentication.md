@@ -39,7 +39,7 @@ We are only interested in a few options, so we will use a pre-created configurat
 To view the first version of the configuration run:
 
 ```execute
-cat hub-v1/jupyterhub_config.py
+cat jupyterhub-v1/jupyterhub_config.py
 ```
 
 All the configuration file should contain is:
@@ -51,7 +51,7 @@ c.JupyterHub.authenticator_class = 'tmpauthenticator.TmpAuthenticator'
 Run JupyterHub again, but tell it to use this configuration file.
 
 ```execute
-jupyterhub -f hub-v1/jupyterhub_config.py
+jupyterhub -f jupyterhub-v1/jupyterhub_config.py
 ```
 
 To access the JupyterHub application click on the link:

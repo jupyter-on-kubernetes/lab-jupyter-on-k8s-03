@@ -1,5 +1,5 @@
 ```execute
-cd ~/hub-v3
+cd ~/exercises/jupyterhub-v3
 ```
 
 ```execute

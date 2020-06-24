@@ -13,7 +13,7 @@ Trigger the running JupyterHub instance to shutdown by interrupting it.
 To see our new configuration for JupyterHub run:
 
 ```execute
-cat hub-v2/jupyterhub_config.py
+cat jupyterhub-v2/jupyterhub_config.py
 ```
 
 The output should be:
@@ -31,7 +31,7 @@ This spawner is only intended for development and you would never use this spawn
 Run JupyterHub again, but tell it to use this configuration file.
 
 ```execute
-jupyterhub -f hub-v2/jupyterhub_config.py
+jupyterhub -f jupyterhub-v2/jupyterhub_config.py
 ```
 
 To access the JupyterHub application click on the link:
