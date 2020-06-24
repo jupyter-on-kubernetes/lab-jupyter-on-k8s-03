@@ -4,8 +4,6 @@ In both workshops, the method of deployment required access to the Kubernetes cl
 
 This workshop is going to investigate the use of an intermediate application for spawning Jupyter notebook sessions for users. In particular, we will look at the use of JupyterHub.
 
-For running JupyterHub on Kubernetes, the go to solution supported by the Jupyter project is the [Zero to JupyterHub with Kubernetes](https://github.com/jupyterhub/zero-to-jupyterhub-k8s) project. Although this solution does work, that this project is supported by the Jupyter project has more or less resulted in no competing solutions of note being developed for deploying JupyterHub and Jupyter notebooks to Kubernetes, at least no community base solutions.
+For running JupyterHub on Kubernetes, the go to solution supported by the Jupyter project is the [Zero to JupyterHub with Kubernetes](https://github.com/jupyterhub/zero-to-jupyterhub-k8s) project. Although this solution can be made to work, is uses a rather complex default configuration out of the box which requires cluster admin privileges in order to deploy it, and a lot of resources. As such, it isn't suitable for teaching how JupyterHub works and the fundamentals of how to deploy it.
 
-Alternative solutions have been developed by cloud solution providers and other commercial organisations for a specific cloud platform, but these are in effect proprietary solutions where none of the code is available, or which is tied to that organisations infrastructure or cloud product.
-
-This workshop therefore is going to ignore the Zero to JupyterHub with Kubernetes project and look at the basics steps for deploying JupyterHub to Kubernetes and see if that spawns some ideas of what could be a better solution to the problem.
+This workshop therefore is going to ignore the Zero to JupyterHub with Kubernetes project and look at the basics steps for deploying JupyterHub to Kubernetes.
