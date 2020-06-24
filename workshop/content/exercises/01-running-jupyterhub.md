@@ -3,13 +3,13 @@ Our eventual target is to be able to run JupyterHub in Kubernetes in a container
 Following best practice, first create a Python virtual environment in which to install the JupyterHub and Jupyter notebook software. To do this, run:
 
 ```execute
-python3 -m venv jupyter
+python3 -m venv jupyter-venv
 ```
 
 Having created the Python virtual environment, activate it so the Python runtime from the Python virtual environment is used.
 
 ```execute
-source jupyter/bin/activate
+source jupyter-venv/bin/activate
 ```
 
 Before installing any additional Python packages, ensure the latest version of ``pip`` is installed into the Python virtual environment by running:
