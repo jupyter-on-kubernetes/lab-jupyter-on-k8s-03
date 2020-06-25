@@ -44,7 +44,7 @@ jupyterhub
 
 To access the JupyterHub application click on the link:
 
-http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
+http://jupyterhub-{{session_namespace}}.{{ingress_domain}}/
 
 This should bring up the JupyterHub login page.
 
