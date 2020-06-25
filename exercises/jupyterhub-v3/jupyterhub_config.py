@@ -11,16 +11,15 @@ c.JupyterHub.spawner_class = "kubespawner.KubeSpawner"
 
 c.JupyterHub.port = 8000
 c.JupyterHub.hub_ip = "0.0.0.0"
-c.JupyterHub.hub_port = 8081
-c.JupyterHub.hub_connect_ip = f"{session_namespace}.{workshop_namespace}.svc.cluster.local"
-c.ConfigurableHTTPProxy.api_url = f"http://{c.JupyterHub.hub_connect_ip}:8082"
+c.JupyterHub.hub_port = 8001
+c.JupyterHub.hub_connect_ip = f"{session_namespace}-local-8001.{workshop_namespace}.svc.cluster.local"
+c.ConfigurableHTTPProxy.api_url = f"http://127.0.0.1:8002"
 
 c.Spawner.start_timeout = 120
 c.Spawner.http_timeout = 60
 
 c.KubeSpawner.namespace = session_namespace
 
-"""
 import wrapt
 
 @wrapt.patch_function_wrapper('jupyterhub.proxy', 'ConfigurableHTTPProxy.add_route')
@@ -37,4 +36,3 @@ def _wrapper_add_route(wrapped, instance, args, kwargs):
         target = target.replace(old, new)
 
     return wrapped(routespec, target, data, *_args, **_kwargs)
-"""
