@@ -53,7 +53,7 @@ spec:
           projectcontour.io/websocket-routes: /
       spec:
         rules:
-        - host: jupyterhub-$(session_namespace).$(ingress_domain)
+        - host: $(session_namespace)-jupyterhub.$(ingress_domain)
           http:
             paths:
             - backend:

@@ -12,7 +12,7 @@ c.JupyterHub.spawner_class = "kubespawner.KubeSpawner"
 c.JupyterHub.port = 8000
 c.JupyterHub.hub_ip = "0.0.0.0"
 c.JupyterHub.hub_port = 8001
-c.JupyterHub.hub_connect_ip = f"jupyterhub-{session_namespace}.{workshop_namespace}.svc.cluster.local"
+c.JupyterHub.hub_connect_ip = f"{session_namespace}-jupyterhub.{workshop_namespace}.svc.cluster.local"
 c.ConfigurableHTTPProxy.api_url = f"http://127.0.0.1:8002"
 
 c.Spawner.start_timeout = 120
