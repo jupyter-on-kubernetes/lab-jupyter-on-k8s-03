@@ -21,20 +21,42 @@ spec:
     resources:
       limits:
         memory: 768Mi
-    ingresses:
-    - name: local-8000
-      port: 8000
     objects:
     - apiVersion: v1
       kind: Service
       metadata:
+        namespace: $(workshop_namespace)
         name: $(session_namespace)-jupyterhub
       spec:
         type: ClusterIP
         selector:
           deployment: $(session_namespace)
         ports:
+        - name: 8000-tcp
+          port: 8000
+          protocol: TCP
+          targetPort: 8000
         - name: 8001-tcp
           port: 8001
           protocol: TCP
           targetPort: 8001
+    - apiVersion: extensions/v1beta1
+      kind: Ingress
+      metadata:
+        namespace: $(workshop_namespace)
+        name: $(session_namespace)-jupyterhub
+        annotations:
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+          nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+          projectcontour.io/response-timeout: "3600"
+          projectcontour.io/websocket-routes: /
+      spec:
+        rules:
+        - host: $(session_namespace)-jupyterhub.$(ingress_domain)
+          http:
+            paths:
+            - backend:
+                serviceName: $(session_namespace)-jupyterhub
+                servicePort: 8000
+              path: /
