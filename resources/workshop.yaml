@@ -62,3 +62,67 @@ spec:
                 serviceName: $(session_namespace)-jupyterhub
                 servicePort: 8000
               path: /
+    - apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: kaniko
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      metadata:
+        name: kaniko
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: $(workshop_namespace)-kaniko
+      subjects:
+      - kind: ServiceAccount
+        namespace: $(session_namespace)
+        name: kaniko
+  environment:
+    objects:
+    - apiVersion: policy/v1beta1
+      kind: PodSecurityPolicy
+      metadata:
+        name: aa-$(workshop_namespace)-kaniko
+      spec:
+        privileged: false
+        allowPrivilegeEscalation: false
+        defaultAddCapabilities:
+        - CHOWN
+        - DAC_OVERRIDE
+        - FOWNER
+        - SETFCAP
+        - SETGID
+        - SETUID
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        hostPorts: []
+        runAsUser:
+          rule: RunAsAny
+        seLinux:
+          rule: RunAsAny
+        fsGroup:
+          rule: RunAsAny
+        supplementalGroups:
+          rule: RunAsAny
+        volumes:
+        - configMap
+        - downwardAPI
+        - emptyDir
+        - persistentVolumeClaim
+        - projected
+        - secret
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      metadata:
+        name: $(workshop_namespace)-kaniko
+      rules:
+      - apiGroups:
+        - policy
+        resources:
+        - podsecuritypolicies
+        verbs:
+        - use
+        resourceNames:
+        - aa-$(workshop_namespace)-kaniko
