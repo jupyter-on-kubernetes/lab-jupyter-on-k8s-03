@@ -55,11 +55,11 @@ spec:
           projectcontour.io/websocket-routes: /
       spec:
         rules:
-        - host: $(session_namespace)-jupyterhub.$(ingress_domain)
+        - host: $(session_namespace)-8000.$(ingress_domain)
           http:
             paths:
             - backend:
-                serviceName: $(session_namespace)-8000
+                serviceName: $(session_namespace)-jupyterhub
                 servicePort: 8000
               path: /
     - apiVersion: v1
