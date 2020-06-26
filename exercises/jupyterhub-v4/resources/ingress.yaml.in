@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jupyterhub
+spec:
+  rules:
+  - host: ${SESSION_NAMESPACE}-jupyterhub.${INGRESS_DOMAIN}
+    http:
+      paths:
+      - path: "/"
+        backend:
+          serviceName: jupyterhub
+          servicePort: 8080

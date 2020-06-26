@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyterhub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: jupyterhub
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        deployment: jupyterhub
+    spec:
+      serviceAccountName: jupyterhub
+      imagePullSecrets:
+      - name: jupyterhub
+      containers:
+      - name: jupyterhub
+        image: ${REGISTRY_HOST}/custom-jupyterhub:latest
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8081
+          protocol: TCP
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            memory: 512Mi
