@@ -4,12 +4,6 @@ In our case, the user name allocated to the session is a random value and there 
 
 Like the authenticator, the spawner used by JupyterHub can also be replaced. For now, what we will actually do is customise the behaviour of the local process spawner to avoid the error which was encountered.
 
-Trigger the running JupyterHub instance to shutdown by interrupting it.
-
-```execute
-<ctrl-c>
-```
-
 To see our new configuration for JupyterHub run:
 
 ```execute

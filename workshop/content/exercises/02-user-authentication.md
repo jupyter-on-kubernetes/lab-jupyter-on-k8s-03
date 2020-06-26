@@ -1,4 +1,4 @@
-We have JupyterHub running but we can't actually login. This is because the default configuration for JupyterHub is to use the Linux system pluggable authentication mechanism (PAM). That is, it would use the Linux hosts password database or associated authentication provider. In this workshop environment PAM is not available for authenticating users.
+We have JupyterHub running but we couldn't actually login. This is because the default configuration for JupyterHub is to use the Linux system pluggable authentication mechanism (PAM). That is, it would use the Linux hosts password database or associated authentication provider. In this workshop environment PAM is not available for authenticating users.
 
 To remedy this, JupyterHub needs to be configured to use a different authenticator.
 
@@ -6,11 +6,6 @@ A range of different authenticators are available, including the ability to hook
 
 For testing, a dummy authenticator is available which will accept any username/password combination, but a more interesting authenticator is an authenticator which allows temporary anonymous sessions.
 
-Trigger the running JupyterHub instance to shutdown by interrupting it.
-
-```execute
-<ctrl-c>
-```
 
 To install the authenticator run:
 
@@ -61,3 +56,9 @@ http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
 Now although we weren't presented with a login page and instead were automatically given a user identity, a failure occurred in trying to create a Jupyter notebook instance.
 
 ![Local Process Spawner Error](local-process-spawner-error.png)
+
+Trigger the running JupyterHub instance to shutdown by interrupting it.
+
+```execute
+<ctrl-c>
+```

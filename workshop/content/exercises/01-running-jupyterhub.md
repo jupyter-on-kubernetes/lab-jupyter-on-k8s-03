@@ -49,3 +49,9 @@ http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
 This should bring up the JupyterHub login page.
 
 ![JupyterHub Login Page](jupyterhub-login-page.png)
+
+You will not be able to login, so trigger the running JupyterHub instance to shutdown by interrupting it.
+
+```execute
+<ctrl-c>
+```
