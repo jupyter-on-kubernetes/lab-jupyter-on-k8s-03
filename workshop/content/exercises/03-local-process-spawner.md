@@ -43,3 +43,9 @@ This time we are successfully able to launch a Jupyter notebook session.
 ![Jupyter Notebook Session](jupyter-notebook-session.png)
 
 Because we are using ``tmpauthenticator.TmpAuthenticator`` for managing user authentication, every distinct user browser session will be assigned their own separate session. The problem we have right now is that these are just separate processes on the one host and so users could interfere with each other.
+
+Before continuing, trigger the running JupyterHub instance to shutdown by interrupting it.
+
+```execute
+<ctrl-c>
+```
