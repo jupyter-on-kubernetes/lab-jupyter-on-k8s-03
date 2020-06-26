@@ -18,6 +18,8 @@ spec:
       terminal:
         enabled: true
         layout: split
+      registry:
+        enabled: true
     resources:
       limits:
         memory: 768Mi
