@@ -51,7 +51,7 @@ jupyterhub -f jupyterhub-v1/jupyterhub_config.py
 
 To access the JupyterHub application click on the link:
 
-http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
+http://{{session_namespace}}-8000.{{ingress_domain}}/
 
 Now although we weren't presented with a login page and instead were automatically given a user identity, a failure occurred in trying to create a Jupyter notebook instance.
 

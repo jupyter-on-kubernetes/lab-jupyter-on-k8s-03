@@ -59,7 +59,7 @@ spec:
           http:
             paths:
             - backend:
-                serviceName: $(session_namespace)-jupyterhub
+                serviceName: $(session_namespace)-8000
                 servicePort: 8000
               path: /
     - apiVersion: v1
