@@ -44,6 +44,7 @@ RUN python3 -m venv /opt/app-root/venv && \
     . /opt/app-root/venv/bin/activate && \
     pip3 install --no-cache-dir --upgrade pip setuptools wheel && \
     pip3 install --no-cache-dir -r /opt/app-root/src/requirements.txt && \
+    npm install configurable-http-proxy && \
     fix-permissions /opt/app-root
 
 ENV BASH_ENV=/opt/app-root/etc/profile \
