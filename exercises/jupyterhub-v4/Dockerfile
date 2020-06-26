@@ -38,4 +38,4 @@ ENV BASH_ENV=/opt/app-root/etc/profile \
 
 ENTRYPOINT [ "container-entrypoint" ]
 
-CMD [ "start-container ]
+CMD [ "start-container" ]
