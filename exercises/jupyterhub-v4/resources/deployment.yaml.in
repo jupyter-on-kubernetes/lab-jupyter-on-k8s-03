@@ -15,8 +15,6 @@ spec:
         deployment: jupyterhub
     spec:
       serviceAccountName: jupyterhub
-      imagePullSecrets:
-      - name: jupyterhub
       containers:
       - name: jupyterhub
         image: ${REGISTRY_HOST}/jupyterhub:latest
