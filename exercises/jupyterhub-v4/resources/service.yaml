@@ -4,13 +4,13 @@ metadata:
   name: jupyterhub
 spec:
   ports:
-  - name: 8080-tcp
-    port: 8080
+  - name: 8000-tcp
+    port: 8000
     protocol: TCP
-    targetPort: 8080
-  - name: 8081-tcp
-    port: 8081
+    targetPort: 8000
+  - name: 8001-tcp
+    port: 8001
     protocol: TCP
-    targetPort: 8081
+    targetPort: 8001
   selector:
     deployment: jupyterhub

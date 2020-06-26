@@ -4,10 +4,10 @@ metadata:
   name: jupyterhub
 spec:
   rules:
-  - host: ${SESSION_NAMESPACE}-jupyterhub.${INGRESS_DOMAIN}
+  - host: ${SESSION_NAMESPACE}-xjupyterhub.${INGRESS_DOMAIN}
     http:
       paths:
       - path: "/"
         backend:
           serviceName: jupyterhub
-          servicePort: 8080
+          servicePort: 8000
