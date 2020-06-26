@@ -29,7 +29,7 @@ COPY --chown=1001:0 opt/. /opt/
 RUN python3 -m venv /opt/app-root/venv && \
     . /opt/app-root/venv/bin/activate && \
     pip3 install --no-cache-dir --upgrade pip setuptools wheel && \
-    pip3 install --no-cache-dir /opt/app-root/src/requirements.txt \
+    pip3 install --no-cache-dir -r /opt/app-root/src/requirements.txt \
     fix-permissions /opt/app-root
 
 ENV BASH_ENV=/opt/app-root/etc/profile \
