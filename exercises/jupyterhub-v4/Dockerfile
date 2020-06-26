@@ -9,7 +9,7 @@ RUN INSTALL_PKGS=" \
       nodejs \
       procps \
       python3-devel \
-      python3-pip
+      python3-pip \
       redhat-rpm-config \
       which \
     " && \
