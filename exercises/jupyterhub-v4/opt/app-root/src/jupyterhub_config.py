@@ -24,6 +24,12 @@ c.ConfigurableHTTPProxy.api_url = f"http://127.0.0.1:8002"
 c.Spawner.start_timeout = 180
 c.Spawner.http_timeout = 60
 
+# Configure location for database and cookie secret file. The target
+# directory will be replaced with a persistent volume.
+
+c.JupyterHub.db_url = "/opt/app-root/data/database.sqlite"
+c.JupyterHub.cookie_secret_file = "/opt/app-root/data/cookie_secret"
+
 # Patch JupyterHub to workaround a bug/limitation in certain Kubernetes
 # environments (minikube), which prevents a process connecting to a port
 # in the same pod via an exposed service name for the application. See:
@@ -33,15 +39,15 @@ c.Spawner.http_timeout = 60
 
 import wrapt
 
-@wrapt.patch_function_wrapper('jupyterhub.proxy', 'ConfigurableHTTPProxy.add_route')
+@wrapt.patch_function_wrapper("jupyterhub.proxy", "ConfigurableHTTPProxy.add_route")
 def _wrapper_add_route(wrapped, instance, args, kwargs):
     def _extract_args(routespec, target, data, *_args, **_kwargs):
         return (routespec, target, data, _args, _kwargs)
 
     routespec, target, data, _args, _kwargs = _extract_args(*args, **kwargs)
 
-    old = 'http://%s:%s' % (c.JupyterHub.hub_connect_ip, c.JupyterHub.hub_port)
-    new = 'http://127.0.0.1:%s' % c.JupyterHub.hub_port
+    old = "http://%s:%s" % (c.JupyterHub.hub_connect_ip, c.JupyterHub.hub_port)
+    new = "http://127.0.0.1:%s" % c.JupyterHub.hub_port
 
     if target.startswith(old):
         target = target.replace(old, new)

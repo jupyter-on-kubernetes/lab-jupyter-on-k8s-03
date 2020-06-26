@@ -28,3 +28,10 @@ spec:
             memory: 512Mi
           requests:
             memory: 512Mi
+        volumeMounts:
+        - name: data
+          mountPath: /opt/app-root/data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: jupyterhub

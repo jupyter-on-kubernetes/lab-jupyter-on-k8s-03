@@ -33,6 +33,10 @@ wait_term()
 
 prep_term
 
+if [ ! -d /opt/app-root/data ]; then
+    mkdir /opt/app-root/data
+fi
+
 jupyterhub -f jupyterhub_config.py &
 
 wait_term

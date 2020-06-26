@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - resources/serviceaccount.yaml
 - resources/rolebinding.yaml
+- resources/persistentvolumeclaim.yaml
 - resources/deployment.yaml
 - resources/service.yaml
 - resources/ingress.yaml
