@@ -16,7 +16,7 @@ c.JupyterHub.port = 8000
 c.JupyterHub.hub_ip = "0.0.0.0"
 c.JupyterHub.hub_port = 8001
 c.JupyterHub.hub_connect_ip = "jupyterhub"
-c.ConfigurableHTTPProxy.api_url = f"http://127.0.0.1:8002"
+c.ConfigurableHTTPProxy.api_url = "http://127.0.0.1:8002"
 
 # Increase startup timeouts since Jupyter notebook instances are slower
 # to start up when run in pods versus local processes.
