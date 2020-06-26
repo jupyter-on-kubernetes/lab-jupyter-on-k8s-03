@@ -41,7 +41,9 @@ c.Spawner.http_timeout = 60
 # Patch JupyterHub to workaround a bug/limitation in certain Kubernetes
 # environments (minikube), which prevents a process connecting to a port
 # in the same pod via an exposed service name for the application. See:
-# https://github.com/kubernetes/minikube/issues/1568 for details.
+# https://github.com/kubernetes/minikube/issues/1568 for details. This
+# causes issues when the JupyterHub proxy is running in the same pod as
+# JupyterHub itself.
 
 import wrapt
 

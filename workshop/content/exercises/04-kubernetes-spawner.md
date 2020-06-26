@@ -35,7 +35,7 @@ cat jupyterhub-v3/jupyterhub_config.py
 
 At this point we are actually cheating a bit, as JupyterHub itself is not being run from a pre-built container image, instead it is being run locally instead, with it relying on the fact that this workshop environment is running in Kubernetes and configured to allow access to the Kubernetes cluster to deploy workloads.
 
-Before we can run JupyterHub with this configuration, we need to install the Python packages for the Kubernetes spawner and other components we need. Run:
+Before we can run JupyterHub with this configuration, we need to install the Python packages for the Kubernetes spawner and other components we need. To install all the Python packages required, run:
 
 ```execute
 pip install -r jupyterhub-v3/requirements.txt
