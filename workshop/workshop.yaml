@@ -8,4 +8,5 @@ modules:
     - exercises/02-user-authentication
     - exercises/03-local-process-spawner
     - exercises/04-kubernetes-spawner
+    - exercises/05-jupyterhub-container
     - workshop-summary

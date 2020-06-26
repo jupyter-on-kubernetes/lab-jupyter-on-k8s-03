@@ -13,6 +13,8 @@ modules:
         name: Local Process Spawner
     exercises/04-kubernetes-spawner:
         name: Kubernetes Spawner
+    exercises/05-jupyterhub-container:
+        name: JupyterHub Container
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
