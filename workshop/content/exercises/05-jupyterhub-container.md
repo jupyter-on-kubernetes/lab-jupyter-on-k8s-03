@@ -81,18 +81,24 @@ When the build has completed, to verify details of the image created, run:
 skopeo inspect docker://{{session_namespace}}-registry.{{ingress_domain}}/jupyterhub:latest
 ```
 
-The view the resource files to deploy JupyterHub run:
+The view the resource files to deploy JupyterHub using this container image run:
 
 ```execute
-tree ~/exercises/jupyterhub-v4/resources -P '*.yaml'
+tree resources -P '*.yaml'
 ```
+
+To create the deployment run:
 
 ```execute
 kubectl apply -f resources
 ```
 
+Monitor the deployment by running:
+
 ```execute
 kubectl rollout status deployment/jupyterhub
 ```
+
+When the deployment has completed, access the JupyterHub application by clicking on the link:
 
 http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
