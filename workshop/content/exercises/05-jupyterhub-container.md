@@ -15,9 +15,15 @@ This is the container image which is used in the helm templates of the Zero to J
 
 The problem with this container image is that it expects the JupyterHub proxy to be run in a separate container of its own. We can remedy this by extending the image to add in the JupyterHub proxy.
 
-Change to the ``~/exercises/jupyterhub-v4`` sub directory.
+Change to the ``~/exercises/jupyterhub-v4`` sub directory in the first terminal.
 
-```execute
+```execute-1
+cd ~/exercises/jupyterhub-v4
+```
+
+as well as the second terminal.
+
+```execute-2
 cd ~/exercises/jupyterhub-v4
 ```
 
