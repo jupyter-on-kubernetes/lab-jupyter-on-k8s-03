@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 
-USER ${NB_USER}
+USER 1000
