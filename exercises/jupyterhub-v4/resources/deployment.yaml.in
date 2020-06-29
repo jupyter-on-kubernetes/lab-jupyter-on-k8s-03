@@ -30,7 +30,7 @@ spec:
             memory: 512Mi
         volumeMounts:
         - name: data
-          mountPath: /opt/app-root/data
+          mountPath: /var/run/jupyterhub
       volumes:
       - name: data
         persistentVolumeClaim:
