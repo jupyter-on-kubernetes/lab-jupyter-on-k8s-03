@@ -7,7 +7,7 @@ skaffold build
 ```
 
 ```execute
-skopeo inspect docker://{{session_namespace}}-registry.${{ingress_domain}}/jupyterhub:latest
+skopeo inspect docker://{{session_namespace}}-registry.{{ingress_domain}}/jupyterhub:latest
 ```
 
 ```execute
