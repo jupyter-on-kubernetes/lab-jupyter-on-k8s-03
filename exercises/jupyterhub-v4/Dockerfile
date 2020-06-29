@@ -3,7 +3,9 @@ FROM jupyterhub/k8s-hub:0.9.0
 USER root
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends nodejs=8.10.0~dfsg-2ubuntu0.2 nodejs-dev=8.10.0~dfsg-2ubuntu0.2 npm && \
+    apt-get install -y --no-install-recommends \
+      nodejs=8.10.0~dfsg-2ubuntu0.2 \
+      nodejs-dev=8.10.0~dfsg-2ubuntu0.2 npm && \
     apt-get purge && \
     apt-get clean && \
     npm install -g configurable-http-proxy
