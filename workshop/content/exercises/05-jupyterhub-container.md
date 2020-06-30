@@ -73,7 +73,7 @@ While the image is being built, you can check out the ``jupyterhub_config.py`` f
 cat jupyterhub_config.py
 ```
 
-The configuration is similar to before, with details related to how the JupyterHub instance is accessed with the cluster being changed.
+The configuration is similar to before, with details related to how the JupyterHub instance is accessed from within the cluster being changed.
 
 When the build has completed, to verify details of the image created, run:
 

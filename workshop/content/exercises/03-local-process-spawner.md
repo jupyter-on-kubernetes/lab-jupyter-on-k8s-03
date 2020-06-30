@@ -2,7 +2,7 @@ The reason for the failure is that JupyterHub by default is configured to use wh
 
 In our case, the user name allocated to the session is a random value and there is no corresponding Linux user account for it. Thus the failure in looking up the details for the user.
 
-Like the authenticator, the spawner used by JupyterHub can also be replaced. For now, what we will actually do is customise the behaviour of the local process spawner to avoid the error which was encountered.
+Like the authenticator, the spawner used by JupyterHub can also be replaced.
 
 To see our new configuration for JupyterHub run:
 
@@ -20,7 +20,7 @@ c.JupyterHub.spawner_class = "jupyterhub.spawner.SimpleLocalProcessSpawner"
 
 In this case we replace the default local process spawner with a simplified version which allows us to create a Jupyter notebook instance per session, but where the Jupyter notebook instances run as the same user as JupyterHub. To allow some measure of separation, each session is assigned its own directory in which to save any work.
 
-This spawner is only intended for development and you would never use this spawner if wanting to hosting Jupyter notebooks for many users since there is no proper separation between users as they share the same file system, and even the same Python virtual environment. We are using it here as an example as it helps introduce the concept of the spawner used by JupyterHub to create the Jupyter notebook instances.
+This spawner is only intended for development and you would never use this spawner if wanting to host Jupyter notebooks for many users since there is no proper separation between users as they share the same file system, and even the same Python virtual environment. We are using it here as an example as it helps introduce the concept of the spawner used by JupyterHub to create the Jupyter notebook instances.
 
 Run JupyterHub again, but tell it to use this configuration file.
 
