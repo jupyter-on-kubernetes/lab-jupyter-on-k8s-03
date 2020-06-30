@@ -87,6 +87,8 @@ The view the resource files to deploy JupyterHub using this container image run:
 tree resources -P '*.yaml'
 ```
 
+The resources include a service account, role binding, deployment, service and ingress. There is also a persistent volume claim for storage so that JupyterHub has a persistent location to store is database.
+
 To create the deployment run:
 
 ```execute
