@@ -30,7 +30,7 @@ jupyterhub -f jupyterhub-v2/jupyterhub_config.py
 
 To access the JupyterHub application click on the link:
 
-http://{{session_namespace}}-8000.{{ingress_domain}}/
+{{ingress_protocol}}://{{session_namespace}}-8000.{{ingress_domain}}/
 
 This time we are successfully able to launch a Jupyter notebook session.
 
