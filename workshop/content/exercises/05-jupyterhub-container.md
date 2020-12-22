@@ -97,4 +97,6 @@ kubectl rollout status deployment/jupyterhub
 
 When the deployment has completed, access the JupyterHub application by clicking on the link:
 
-http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
+```dashboard:open-url
+url: http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
+```
