@@ -30,7 +30,7 @@ cat Dockerfile
 The file should contain:
 
 ```
-FROM jupyterhub/k8s-hub:0.9.0
+FROM jupyterhub/k8s-hub:0.10.6
 
 USER root
 
