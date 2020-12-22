@@ -15,15 +15,9 @@ This is the container image which is used in the helm templates of the Zero to J
 
 The problem with this container image is that it expects the JupyterHub proxy to be run in a separate container of its own. We can remedy this by extending the image to add in the JupyterHub proxy.
 
-Change to the ``~/exercises/jupyterhub-v4`` sub directory in the first terminal.
+Change to the ``~/exercises/jupyterhub-v4`` sub directory in both terminals.
 
-```execute-1
-cd ~/exercises/jupyterhub-v4
-```
-
-as well as the second terminal.
-
-```execute-2
+```execute-all
 cd ~/exercises/jupyterhub-v4
 ```
 
@@ -62,7 +56,7 @@ The ``Dockerfile`` can be used to build a container image using ``docker build``
 Because running ``kaniko`` directly is a bit fiddly, we are going to use ``skaffold`` to trigger the build. To do this run the command:
 
 ```execute-2
-skaffold build
+skaffold build --cache-artifacts=false
 ```
 
 When running ``kaniko`` to build a container image, a build pod will be created in the Kubernetes cluster. This will create the container image, and when done push the resulting image to an image registry.

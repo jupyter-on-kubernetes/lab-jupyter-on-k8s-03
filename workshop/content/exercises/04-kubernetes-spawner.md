@@ -55,7 +55,9 @@ jupyterhub -f jupyterhub-v3/jupyterhub_config.py
 
 To access the JupyterHub application click on the link:
 
-{{ingress_protocol}}://{{session_namespace}}-8000.{{ingress_domain}}/
+```dashboard:open-url
+url: {{ingress_protocol}}://{{session_namespace}}-8000.{{ingress_domain}}/
+```
 
 If this is the first time the Jupyter notebook image has been used with the Kubernetes cluster, it may take a while to spin up the instance as it will first need to pull down the container image from Docker Hub. The configuration has increased the startup timeout for the instance to accomodate for this, but if it does fail due to taking too long, retry until it works.
 
@@ -72,7 +74,7 @@ If you return to the Jupyter notebook web interface and click on the **Control P
 
 This will only stop your Jupyter notebook instance and JupyterHub itself will still be running. You can therefore still start up a new instance of a Jupyter notebook from the web interface if desired.
 
-When done, trigger the running JupyterHub instance to shutdown by interrupting it.
+Once you have stopped the Jupyter notebook instance, trigger the running JupyterHub instance to shutdown by interrupting it.
 
 ```execute-1
 <ctrl-c>
@@ -80,7 +82,7 @@ When done, trigger the running JupyterHub instance to shutdown by interrupting i
 
 If you hadn't shutdown the Jupyter notebook instance before doing this, you will see that the pod for the Jupyter notebook instance will also be terminated when JupyterHub is shutdown.
 
-As we are down with this test, stop the watch on the pods.
+As we are done with this test, stop the watch on the pods.
 
 ```execute-2
 <ctrl-c>
