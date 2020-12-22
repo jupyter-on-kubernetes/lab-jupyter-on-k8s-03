@@ -95,8 +95,18 @@ Monitor the deployment by running:
 kubectl rollout status deployment/jupyterhub
 ```
 
-When the deployment has completed, access the JupyterHub application by clicking on the link:
+When the deployment has completed run a watch again on pods being created.
+
+```execute-2
+watch kubectl get pods
+```
+
+You should already see a pod corresponding to JupyterHub.
+
+Access the JupyterHub application by clicking on the link:
 
 ```dashboard:open-url
 url: http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
 ```
+
+Back here and the watch on pods should also show a pod for the Jupyter notebook session.
