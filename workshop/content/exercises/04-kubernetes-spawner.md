@@ -56,7 +56,7 @@ jupyterhub -f jupyterhub-v3/jupyterhub_config.py
 To access the JupyterHub application click on the link:
 
 ```dashboard:open-url
-url: {{ingress_protocol}}://{{session_namespace}}-8000.{{ingress_domain}}/
+url: http://{{session_namespace}}-8000.{{ingress_domain}}/
 ```
 
 If this is the first time the Jupyter notebook image has been used with the Kubernetes cluster, it may take a while to spin up the instance as it will first need to pull down the container image from Docker Hub. The configuration has increased the startup timeout for the instance to accomodate for this, but if it does fail due to taking too long, retry until it works.
