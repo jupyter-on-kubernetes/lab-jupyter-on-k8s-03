@@ -2,6 +2,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: jupyterhub
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    projectcontour.io/response-timeout: "3600"
+    projectcontour.io/websocket-routes: /
 spec:
   rules:
   - host: ${SESSION_NAMESPACE}-jupyterhub.${INGRESS_DOMAIN}
