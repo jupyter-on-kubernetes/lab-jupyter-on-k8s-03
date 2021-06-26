@@ -3,7 +3,6 @@ kind: Workshop
 metadata:
   name: lab-jupyter-on-k8s-03
 spec:
-  vendor: eduk8s.io
   title: "Jupyter on Kubernetes #3"
   description: A workshop exploring using JupyterHub to deploy Jupyter notebooks to Kubernetes
   url: https://github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
@@ -13,6 +12,9 @@ spec:
   session:
     namespaces:
       budget: large
+      limits:
+        default:
+          memory: 768Mi
     applications:
       terminal:
         enabled: true
@@ -23,9 +25,6 @@ spec:
         enabled: true
       registry:
         enabled: true
-    resources:
-      limits:
-        memory: 768Mi
     objects:
     - apiVersion: v1
       kind: Service
