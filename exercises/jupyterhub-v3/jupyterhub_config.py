@@ -23,6 +23,9 @@ c.KubeSpawner.namespace = session_namespace
 
 c.KubeSpawner.image = "jupyter/minimal-notebook:latest"
 
+c.KubeSpawner.uid = 1000
+c.KubeSpawner.fs_gid = 100
+
 # Override Jupyter port configuration to match what is configured for the
 # workshop environment.
 
