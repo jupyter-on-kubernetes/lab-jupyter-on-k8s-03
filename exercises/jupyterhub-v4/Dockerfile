@@ -1,4 +1,4 @@
-FROM jupyterhub/k8s-hub:0.10.6
+FROM jupyterhub/k8s-hub:1.0.1
 
 USER root
 
@@ -13,6 +13,6 @@ COPY requirements.txt /tmp/requirements.txt
 
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
+COPY jupyterhub_config.py /usr/local/etc/jupyterhub/jupyterhub_config.py
 
 USER 1000
