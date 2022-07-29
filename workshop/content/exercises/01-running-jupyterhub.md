@@ -27,13 +27,13 @@ npm install configurable-http-proxy
 Now install JupyterHub using:
 
 ```execute
-pip install jupyterhub
+pip install jupyterhub==2.3.1
 ```
 
 Initially we are going to have JupyterHub spawn local instances of the Jupyter notebook application, so we install it as well.
 
 ```execute
-pip install notebook
+pip install notebook==6.4.12
 ```
 
 To run JupyterHub now run:
@@ -45,7 +45,7 @@ jupyterhub
 To access the JupyterHub application click on the link:
 
 ```dashboard:open-url
-url: http://{{session_namespace}}-8000.{{ingress_domain}}/
+url: http://local-8000-{{session_namespace}}.{{ingress_domain}}/
 ```
 
 This should bring up the JupyterHub login page.

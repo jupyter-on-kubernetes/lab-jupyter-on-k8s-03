@@ -10,7 +10,7 @@ For testing, a dummy authenticator is available which will accept any username/p
 To install the authenticator run:
 
 ```execute
-pip install jupyterhub-tmpauthenticator
+pip install jupyterhub-tmpauthenticator==0.6
 ```
 
 Although we have installed the authenticator, we still need to configure JupyterHub to use it.
@@ -52,7 +52,7 @@ jupyterhub -f jupyterhub-v1/jupyterhub_config.py
 To access the JupyterHub application click on the link:
 
 ```dashboard:open-url
-url: http://{{session_namespace}}-8000.{{ingress_domain}}/
+url: http://local-8000-{{session_namespace}}.{{ingress_domain}}/
 ```
 
 Now although we weren't presented with a login page and instead were automatically given a user identity, a failure occurred in trying to create a Jupyter notebook instance.

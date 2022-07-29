@@ -1,20 +1,23 @@
-apiVersion: training.eduk8s.io/v1alpha2
+apiVersion: training.educates.dev/v1beta1
 kind: Workshop
 metadata:
   name: lab-jupyter-on-k8s-03
 spec:
   title: "Jupyter on Kubernetes #3"
-  description: A workshop exploring using JupyterHub to deploy Jupyter notebooks to Kubernetes
-  url: https://github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
-  content:
-    files: github.com/jupyter-on-kubernetes/lab-jupyter-on-k8s-03
-  duration: 45m
+  description: A workshop exploring using JupyterHub to deploy Jupyter notebooks to Kubernetes.
+  workshop:
+    files:
+    - image:
+        url: $(image_repository)/lab-jupyter-on-k8s-03-files:latest
+      includePaths:
+      - /workshop/**
+      - /exercises/**
+      - /README.md
   session:
     namespaces:
-      budget: large
-      limits:
-        default:
-          memory: 768Mi
+      budget: custom
+      security:
+        policy: baseline
     applications:
       terminal:
         enabled: true
@@ -25,6 +28,17 @@ spec:
         enabled: true
       registry:
         enabled: true
+      vcluster:
+        enabled: true
+    ingresses:
+    - name: local-8000
+      authentication:
+        type: none
+      port: 8000
+    - name: local-8001
+      authentication:
+        type: none
+      port: 8001
     objects:
     - apiVersion: v1
       kind: Service
@@ -44,87 +58,90 @@ spec:
           port: 8001
           protocol: TCP
           targetPort: 8001
-    - apiVersion: extensions/v1beta1
-      kind: Ingress
-      metadata:
-        namespace: $(workshop_namespace)
-        name: $(session_namespace)-jupyterhub
-        annotations:
-          nginx.ingress.kubernetes.io/enable-cors: "true"
-          nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
-          nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
-          projectcontour.io/response-timeout: "3600"
-          projectcontour.io/websocket-routes: /
-      spec:
-        rules:
-        - host: $(session_namespace)-8000.$(ingress_domain)
-          http:
-            paths:
-            - backend:
-                serviceName: $(session_namespace)-jupyterhub
-                servicePort: 8000
-              path: /
-    - apiVersion: v1
-      kind: ServiceAccount
-      metadata:
-        name: kaniko
-    - apiVersion: rbac.authorization.k8s.io/v1
-      kind: RoleBinding
-      metadata:
-        name: kaniko
-      roleRef:
-        apiGroup: rbac.authorization.k8s.io
-        kind: ClusterRole
-        name: $(workshop_namespace)-kaniko
-      subjects:
-      - kind: ServiceAccount
-        namespace: $(session_namespace)
-        name: kaniko
-  environment:
-    objects:
-    - apiVersion: policy/v1beta1
-      kind: PodSecurityPolicy
-      metadata:
-        name: aa-$(workshop_namespace)-kaniko
-      spec:
-        privileged: false
-        allowPrivilegeEscalation: false
-        defaultAddCapabilities:
-        - CHOWN
-        - DAC_OVERRIDE
-        - FOWNER
-        - SETFCAP
-        - SETGID
-        - SETUID
-        hostIPC: false
-        hostNetwork: false
-        hostPID: false
-        hostPorts: []
-        runAsUser:
-          rule: RunAsAny
-        seLinux:
-          rule: RunAsAny
-        fsGroup:
-          rule: RunAsAny
-        supplementalGroups:
-          rule: RunAsAny
-        volumes:
-        - configMap
-        - downwardAPI
-        - emptyDir
-        - persistentVolumeClaim
-        - projected
-        - secret
-    - apiVersion: rbac.authorization.k8s.io/v1
-      kind: ClusterRole
-      metadata:
-        name: $(workshop_namespace)-kaniko
-      rules:
-      - apiGroups:
-        - policy
-        resources:
-        - podsecuritypolicies
-        verbs:
-        - use
-        resourceNames:
-        - aa-$(workshop_namespace)-kaniko
+    # - apiVersion: networking.k8s.io/v1
+    #   kind: Ingress
+    #   metadata:
+    #     namespace: $(workshop_namespace)
+    #     name: $(session_namespace)-jupyterhub
+    #     annotations:
+    #       nginx.ingress.kubernetes.io/enable-cors: "true"
+    #       nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    #       nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    #       projectcontour.io/response-timeout: "3600"
+    #       projectcontour.io/websocket-routes: /
+    #   spec:
+    #     rules:
+    #     - host: $(session_namespace)-8000.$(ingress_domain)
+    #       http:
+    #         paths:
+    #         - pathType: Prefix
+    #           path: /
+    #           backend:
+    #             service:
+    #               name: $(session_namespace)-jupyterhub
+    #               port:
+    #                 number: 8000
+    # - apiVersion: v1
+    #   kind: ServiceAccount
+    #   metadata:
+    #     name: kaniko
+    # - apiVersion: rbac.authorization.k8s.io/v1
+    #   kind: RoleBinding
+    #   metadata:
+    #     name: kaniko
+    #   roleRef:
+    #     apiGroup: rbac.authorization.k8s.io
+    #     kind: ClusterRole
+    #     name: $(workshop_namespace)-kaniko
+    #   subjects:
+    #   - kind: ServiceAccount
+    #     namespace: $(session_namespace)
+    #     name: kaniko
+  # environment:
+  #   objects:
+  #   - apiVersion: policy/v1beta1
+  #     kind: PodSecurityPolicy
+  #     metadata:
+  #       name: aa-$(workshop_namespace)-kaniko
+  #     spec:
+  #       privileged: false
+  #       allowPrivilegeEscalation: false
+  #       defaultAddCapabilities:
+  #       - CHOWN
+  #       - DAC_OVERRIDE
+  #       - FOWNER
+  #       - SETFCAP
+  #       - SETGID
+  #       - SETUID
+  #       hostIPC: false
+  #       hostNetwork: false
+  #       hostPID: false
+  #       hostPorts: []
+  #       runAsUser:
+  #         rule: RunAsAny
+  #       seLinux:
+  #         rule: RunAsAny
+  #       fsGroup:
+  #         rule: RunAsAny
+  #       supplementalGroups:
+  #         rule: RunAsAny
+  #       volumes:
+  #       - configMap
+  #       - downwardAPI
+  #       - emptyDir
+  #       - persistentVolumeClaim
+  #       - projected
+  #       - secret
+  #   - apiVersion: rbac.authorization.k8s.io/v1
+  #     kind: ClusterRole
+  #     metadata:
+  #       name: $(workshop_namespace)-kaniko
+  #     rules:
+  #     - apiGroups:
+  #       - policy
+  #       resources:
+  #       - podsecuritypolicies
+  #       verbs:
+  #       - use
+  #       resourceNames:
+  #       - aa-$(workshop_namespace)-kaniko

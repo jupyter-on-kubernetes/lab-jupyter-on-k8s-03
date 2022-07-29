@@ -3,7 +3,6 @@ name: "Jupyter on Kubernetes #3"
 modules:
     activate:
     - workshop-overview
-    - verify-environment
     - exercises/01-running-jupyterhub
     - exercises/02-user-authentication
     - exercises/03-local-process-spawner

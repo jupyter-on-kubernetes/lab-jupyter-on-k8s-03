@@ -30,7 +30,7 @@ cat Dockerfile
 The file should contain:
 
 ```
-FROM jupyterhub/k8s-hub:1.0.1
+FROM jupyterhub/k8s-hub:1.1.3
 
 USER root
 
@@ -71,10 +71,10 @@ The configuration is similar to before, with details related to how the JupyterH
 When the build has completed, to verify details of the image created, run:
 
 ```execute
-skopeo inspect docker://{{session_namespace}}-registry.{{ingress_domain}}/jupyterhub:latest
+skopeo inspect docker://{{registry_host}}/jupyterhub:latest
 ```
 
-The view the resource files to deploy JupyterHub using this container image run:
+To view the resource files to deploy JupyterHub using this container image run:
 
 ```execute
 tree resources -P '*.yaml'
@@ -105,7 +105,7 @@ You should already see a pod corresponding to JupyterHub.
 Access the JupyterHub application by clicking on the link:
 
 ```dashboard:open-url
-url: http://{{session_namespace}}-jupyterhub.{{ingress_domain}}/
+url: http://jupyterhub-{{session_namespace}}.{{ingress_domain}}/
 ```
 
 Back here and the watch on pods should also show a pod for the Jupyter notebook session.

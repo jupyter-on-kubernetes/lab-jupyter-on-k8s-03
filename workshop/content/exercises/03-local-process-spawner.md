@@ -31,7 +31,7 @@ jupyterhub -f jupyterhub-v2/jupyterhub_config.py
 To access the JupyterHub application click on the link:
 
 ```dashboard:open-url
-url: http://{{session_namespace}}-8000.{{ingress_domain}}/
+url: http://local-8000-{{session_namespace}}.{{ingress_domain}}/
 ```
 
 This time we are successfully able to launch a Jupyter notebook session.

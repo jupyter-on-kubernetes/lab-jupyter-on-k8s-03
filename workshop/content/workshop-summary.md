@@ -1,6 +1,6 @@
 In this workshop you have seen how you can create your own containerised deployment of JupyterHub running in Kubernetes.
 
-The Jupyter project team does have the Zero to JupyterHub with Kubernetes project, but its default configuration requires cluster admin access, and is designed for a very large scale deployment supporting many thousands of users.
+The Jupyter project team does have the Zero to JupyterHub with Kubernetes project, but it is designed for a very large scale deployment supporting many thousands of users.
 
 For smaller personal deployments, or deployments in an organisation, using an architecture able to support very large scale deployments may not be a wise choice and may consume more resources for the base install than you want.
 

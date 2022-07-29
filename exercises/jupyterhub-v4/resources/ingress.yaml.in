@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: jupyterhub
@@ -10,10 +10,13 @@ metadata:
     projectcontour.io/websocket-routes: /
 spec:
   rules:
-  - host: ${SESSION_NAMESPACE}-jupyterhub.${INGRESS_DOMAIN}
+  - host: jupyterhub-${SESSION_NAMESPACE}.${INGRESS_DOMAIN}
     http:
       paths:
-      - path: "/"
+      - pathType: Prefix
+        path: "/"
         backend:
-          serviceName: jupyterhub
-          servicePort: 8000
+          service:
+            name: jupyterhub
+            port:
+              number: 8000

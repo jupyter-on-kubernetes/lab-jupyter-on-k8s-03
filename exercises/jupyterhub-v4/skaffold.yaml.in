@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta5
+apiVersion: skaffold/v2beta28
 kind: Config
 build:
   artifacts:
@@ -6,8 +6,9 @@ build:
     kaniko:
       cache: {}
   cluster:
-    serviceAccount: kaniko
+    serviceAccount: default
     dockerConfig:
       path: ~/.docker/config.json
+    randomDockerConfigSecret: true
 deploy:
   kustomize: {}
